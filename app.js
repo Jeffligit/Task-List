@@ -9,7 +9,7 @@ class Task {
         //this.userId = userId;
     }
 }
-
+// ui
 class UI {
     constructor(){
         this.tasks = [];
@@ -53,7 +53,7 @@ class UI {
                     <td class="text-center"> <span class="badge ${badgeType}">${task.priority.name}</span> </td>
                     <td id="row_${task.id}" class="text-center">${task.description}</td>
                     <td class="text-center"><a style="cursor: pointer;"><img id="${task.id}" class="edit" src="pencil.svg"/></a></td>
-                    `;
+                    `; 
                     taskListElement.appendChild(row);
                 });
             });
