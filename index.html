@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>My Task List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container" id="login-page">
+
+    </div>
+
+    <div class="container" id="registration-page">
+
+    </div>
+
+    <div id="task-list-page" class="container d-flex flex-fluid justify-content-center" >
+      <div class="card mt-4">
+        <div class="card-body">
+          <h3 class="card-title text-center">Task List</h3>
+          <hr class="my-4" />
+          <h5 class="text-center">
+            Here we build a simple task list using ES6 classes
+          </h5>
+          <form id="task-form">
+            <div class="input-group mb-5 mt-5">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Insert Task"
+                aria-label="task"
+                aria-describedby="adding task"
+                id="task"
+              />
+              <div class="input-group-append">
+                <button class="btn btn-light dropdown-toggle" type="button" id="priority-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Priority</button>
+                <div class="dropdown-menu" id="priority-list" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-success" id="low">Low</a>
+                  <a class="dropdown-item text-warning" id="Medium">Medium</a>
+                  <a class="dropdown-item text-danger" id="high">High</a>
+                </div>
+                <button
+                  class="btn btn-outline-secondary"
+                  type="submit"
+                  id="add-task"
+                >
+                  <img src="plus.svg">
+                </button>
+              </div>
+            </div>
+          </form>
+          <p class="text-center text-danger" id="alert"></p>
+          <table class="table table-bordered mt-5">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col" class="text-center">Priority</th>
+                <th scope="col" class="text-center">Tasks</th>
+                <th scope="col" class="text-center">Edit</th>
+              </tr>
+            </thead>
+            <tbody id="task-list">
+              <tr>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBW3K40vIUYQIX63lhaVWqqns8rDNf5Fic",
+        authDomain: "ix-jeff-task-db.firebaseapp.com",
+        databaseURL: "https://ix-jeff-task-db.firebaseio.com",
+        projectId: "ix-jeff-task-db",
+        storageBucket: "ix-jeff-task-db.appspot.com",
+        messagingSenderId: "16068914939",
+        appId: "1:16068914939:web:2b33bb2bd76797591a0a5e",
+        measurementId: "G-HPSC4X4V9D"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script> 
+    <script src="app.js"></script>
+  </body>
+</html>
