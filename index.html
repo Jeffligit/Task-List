@@ -12,19 +12,71 @@
     />
   </head>
   <body>
-    <div class="container" id="login-page">
-
+    <div class="container flex-fluid justify-content-center">
+      <div class="card mt-4 d-none" id="welcome=page">
+        <div class="card-body">
+          <h3 class="card-title text-center">Welcome to Task List</h3>
+          <hr class="my-4"/>
+        </div>
+      </div>
+      <div class="card mt-4 d-block" id="login-page">
+        <div class="card-body">
+          <h3 class="card-title text-center">Login</h3>
+          <hr class="my-4"/>
+          <form>
+            <div class="form-group">
+              <label for="login-email">Email address</label>
+              <input type="email" class="form-control" id="login-email" aria-describedby="emailHelp">
+              <small id="login-email-alert" class="form-text text-danger"></small>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" class="form-control" id="login-password">
+              <small id="login-password-alert" class="form-text text-danger"></small>
+            </div>
+          </form>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" id="login-btn">Submit</button>
+            <button type="button" class="btn btn-primary" id="register-btn">Sign Up</button>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4 d-none" id="registration-page">
+        <div class="card-body">
+          <h3 class="card-title text-center">Register</h3>
+          <hr class="my-4"/>
+          <form>
+            <div class="form-group">
+              <label for="login-email">Email address</label>
+              <input type="email" class="form-control" id="reg-email" aria-describedby="emailHelp">
+              <small id="reg-email-alert" class="form-text text-danger"></small>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" class="form-control" id="reg-password">
+              <small id="password-alert" class="form-text text-danger"></small>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Confirm Password</label>
+              <input type="password" class="form-control" id="reg-password-confirm">
+              <small id="confirm-password-alert" class="form-text text-danger"></small>
+            </div>
+          </form>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mb-3 row-1" id="complete-reg-btn">Submit</button>
+            <br>
+            <a id="back-to-login-page" href=#>Already have an account</a>
+          </div>
+          
+        </div>
+      </div>
     </div>
-
-    <div class="container" id="registration-page">
-
-    </div>
-
-    <div id="task-list-page" class="container d-flex flex-fluid justify-content-center" >
-      <div class="card mt-4">
+    <div class="container d-flex flex-fluid justify-content-center">
+      
+      <div class="card mt-4 d-none" id="task-list-page">
         <div class="card-body">
           <h3 class="card-title text-center">Task List</h3>
-          <hr class="my-4" />
+          <hr class="my-4"/>
           <h5 class="text-center">
             Here we build a simple task list using ES6 classes
           </h5>
