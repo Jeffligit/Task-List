@@ -232,6 +232,20 @@ document.getElementById("login-btn").addEventListener("click", function(e) {
     const email = emailElement.value;
     const password = passwordElement.value;
 
+    //Errors
+    if (email == "" && password == "") {
+        emailElement.setAttribute("class", "form-control border border-danger");
+        passwordElement.setAttribute("class", "form-control border border-danger");
+        emailAlertElement.innerHTML = "Enter an email";
+        passwordAlertElement.innerHTML = "Enter a password";
+    } else if (email == "") {
+        emailElement.setAttribute("class", "form-control border border-danger");
+        emailAlertElement.innerHTML = "Enter an email";
+    } else if (password == "") {
+        passwordElement.setAttribute("class", "form-control border border-danger");
+        passwordAlertElement.innerHTML = "Enter a password";
+    }
+
     firebase.auth().signInWithEmailAndPassword(email, password).then(function (e) {
         user = firebase.auth().currentUser;
         uid = user.uid;
@@ -364,30 +378,34 @@ function loadTasks() {
             const allTasks = tasksSnapshot.val();
             Object.keys(allTasks).forEach(taskKey => {
                 const taskData = allTasks[taskKey];
-                const task = new Task(taskData.description, taskKey);
+                console.log(uid);
+                console.log(taskData.user_id);
+                if (taskData.user_id == uid) {
+                    const task = new Task(taskData.description, taskKey);
 
-                if (taskData.priority) {
-                    const priority = ui.priorities.find(priority => priority.id == taskData.priority);
-                    task.priority = priority;
-                }
+                    if (taskData.priority) {
+                        const priority = ui.priorities.find(priority => priority.id == taskData.priority);
+                        task.priority = priority;
+                    }
 
-                ui.tasks.push(task);
-                const taskListElement = document.getElementById("task-list");
-                const row = document.createElement("tr");
-                let badgeType;
-                if (task.priority.id == "L") {
-                    badgeType = "badge-success";
-                } else if (task.priority.id == "M") {
-                    badgeType = "badge-warning";
-                } else {
-                    badgeType = "badge-danger";
+                    ui.tasks.push(task);
+                    const taskListElement = document.getElementById("task-list");
+                    const row = document.createElement("tr");
+                    let badgeType;
+                    if (task.priority.id == "L") {
+                        badgeType = "badge-success";
+                    } else if (task.priority.id == "M") {
+                        badgeType = "badge-warning";
+                    } else {
+                        badgeType = "badge-danger";
+                    }
+                    row.innerHTML = `
+                    <td class="text-center"> <span class="badge ${badgeType}">${task.priority.name}</span> </td>
+                    <td id="row_${task.id}" class="text-center">${task.description}</td>
+                    <td class="text-center"><a style="cursor: pointer;"><img id="${task.id}" class="edit" src="pencil.svg"/></a></td>
+                    `; 
+                    taskListElement.appendChild(row);
                 }
-                row.innerHTML = `
-                <td class="text-center"> <span class="badge ${badgeType}">${task.priority.name}</span> </td>
-                <td id="row_${task.id}" class="text-center">${task.description}</td>
-                <td class="text-center"><a style="cursor: pointer;"><img id="${task.id}" class="edit" src="pencil.svg"/></a></td>
-                `; 
-                taskListElement.appendChild(row);
             });
         });
     });
