@@ -1,4 +1,4 @@
-let user; // Comment test
+let user;
 let uid;
 
 class Task {
@@ -222,6 +222,19 @@ document.getElementById("back-to-login-page").addEventListener("click", function
     document.getElementById("login-page").setAttribute("class", "card mt-4 d-block");
     document.getElementById("registration-page").setAttribute("class", "card mt-4 d-none");
 });
+
+// nav bar
+
+document.getElementById("nav-bar-login").addEventListener("click", function(e) {
+    document.getElementById("login-page").setAttribute("class", "card mt-4 d-block");
+    document.getElementById("task-list-page").setAttribute("class", "card mt-4 d-none");
+});
+
+document.getElementById("nav-bar-list").addEventListener("click", function(e) {
+    document.getElementById("task-list-page").setAttribute("class", "card mt-4 d-block");
+    document.getElementById("login-page").setAttribute("class", "card mt-4 d-none");
+});
+
 
 //Log in
 document.getElementById("login-btn").addEventListener("click", function(e) {
